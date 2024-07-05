@@ -2,12 +2,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import Main.Materia.Controllers.Graph;
-import Main.Materia.Controllers.RecommentationEngine;
+import Main.Materia.Controllers.RecommendationEngine;
 import Main.Materia.Models.NodeGraph;
 import Main.Materia.Models.User;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        System.out.println("Hello, World!");
         Graph<User> graph = new Graph<>();
 
         // Crear usuarios
@@ -38,10 +39,12 @@ public class App {
         graph.addConnection(node2, node3);
         graph.addConnection(node3, node5);
 
+        // Imprimir grafo 
+        graph.printGraph();
 
-        //Recomendaciones de amigos.
-        RecommentationEngine engine = new RecommentationEngine();
-        List<User> recommendations = engine.recommendFriends(node1, graph);
-        System.out.println("Friend recommedations for " + user1.getName() + ":" + recommendations);
+        // Recomendaciones de amigos
+        RecommendationEngine engine = new RecommendationEngine();
+        List<User> recommendations = engine.recommendationFiends(node1, graph);
+        System.out.println("Recomendación de amigo para " + user1.getName() + ": " + recommendations);
     }
 }

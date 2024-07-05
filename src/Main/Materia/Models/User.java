@@ -37,4 +37,9 @@ public class User {
     public void setInterests(List<String> interests) {
         this.interests = interests;
     }
+
+    @Override
+    public String toString() {
+       return name + " (Age: " + age + ", Interests: " + interests + ")";
+    }
 }
